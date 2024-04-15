@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Movie Search</title>
+<link rel="stylesheet" href="search.css">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-container">
+          <div class="logo-container">
+            <h1 class="logo">Movieplex</h1>
+          </div>
+          <div class="menu-container">
+            
+          </div>
+          <div class="toggle">
+            <i class="fas fa-moon dark"></i>
+            <i class="fas fa-sun light"></i>
+            <div class="toggle-ball"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar">
+        <a href="search.html"><i class="left-menu-icon fas fa-search"></i></a>
+        <a href="index.html"><i class="left-menu-icon fas fa-home"></i></a>
+       
+        <a href="watchlist.html"><i class="left-menu-icon fas fa-bookmark"></i></a>
+        
+      </div>
+    <input type="text" id="searchBar" placeholder="Search for movies or TV shows..." autocomplete="off">
+    
+        <div id="results"></div>
+   
+    
+
+<script src="search.js"></script>
+<script src="main.js"></script>
+<script src="watchlist.js"></script>
+</body>
+</html>

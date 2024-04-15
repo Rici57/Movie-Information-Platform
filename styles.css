@@ -1,0 +1,451 @@
+* {
+  margin: 0;
+}
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+  width: 100%;
+  height: 50px;
+  background-color: black;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0 50px;
+  height: 100%;
+  font-family: 'Sen', sans-serif;
+}
+
+.logo-container {
+  flex: 1; 
+}
+
+.logo {
+  font-family: 'Sen', sans-serif;
+  font-size: 30px;
+  color: red;
+}
+
+.menu-container {
+  flex: 6;
+}
+
+.menu-list {
+  display: flex;
+  list-style: none;
+}
+
+.menu-list-item {
+  margin-right: 30px;
+}
+
+ul :first-child{
+  font-weight: bold;
+}
+
+.toggle {
+  width: 40px;
+  height: 20px;
+  background-color: white;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+}
+
+.dark{
+  color: grey;
+}
+
+.light{
+  color: gold;
+}
+
+.toggle-ball{
+  width: 18px;
+  height: 18px;
+  background-color: black;
+  position: absolute;
+  right: 1px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.6s ease all;
+}
+
+.sidebar {
+  height: 100%;
+  width: 50px;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 300px;
+}
+
+.left-menu-icon{
+  color: white;
+  font-size: 35px;
+  margin-bottom: 80px;
+  cursor: pointer;
+
+}
+
+.container {
+  background-color: black;
+  min-height: calc(100vh - 50px);
+  color: white;
+
+}
+
+.content-container {
+  margin-left: 50px;
+}
+
+.featured-content{
+  height: 50vh;
+  padding: 50px;
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  background-position: center center;
+  
+}
+
+.featured-title{
+  width: 300px;
+}
+
+.desc{
+  width: 400px;
+  margin: 30px 0;
+}
+
+.btn{
+  background-color: gold;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-weight: bold;
+}
+
+.movie-list{
+  display: flex;
+  align-items: center;
+  height: 400px;
+  transform: translateX(0);
+  transition: all 1s ease-in-out;
+  margin-bottom: 12px;
+  margin-top: 12px;
+  scroll-behavior: smooth;
+}
+
+.movie-list-container{
+  padding: 0 20px;
+}
+
+.movie-list-wrapper{
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.movie-list-title{
+  margin-bottom: 40px;
+  margin-top: 30px;
+}
+
+.movie-list-item{
+  margin-right: 30px;
+  position: relative;
+}
+
+.movie-list-item-img{
+  width: 250px;
+  height: 350px;
+  object-fit: cover;
+  transition: all 0.5s ease-in-out;
+  border-radius: 20px;
+}
+
+.movie-list-item:hover .movie-list-item-img{
+  transform: scale(1.1);
+  margin: 0 10px;
+  opacity: 0.35;
+}
+
+.movie-list-item-title{ 
+  padding: 0 10px;
+  font-size: 17px;
+  font-weight: bold;
+  position: absolute;
+  top: 3%;
+  left: 30px;
+  opacity: 0;
+  transition: 0.5s all ease-in-out;
+  color: white;
+} 
+
+.movie-list-item-desc{
+  
+  padding: 10px;
+  font-size: 12px;
+  position: absolute;
+  top: 20%;
+  left: 8px;
+  width: 240px;
+  opacity: 0;
+  transition: 0.5s all ease-in-out;
+  
+}
+
+.movie-list-item-trailer{
+  padding: 8px;
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+  font-weight: 800;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 30px;
+  left: 50px;
+  opacity: 0;
+  transition: 0.5s all ease-in-out;
+  transition: transform 0.2s, background-color 0.5s;
+
+}
+
+.movie-list-item-trailer:hover {
+  transform: scale(1.05);
+  background-color: orange; 
+  opacity: 1; 
+}
+
+
+.movie-list-item-trailer:active {
+  transform: scale(0.95);
+}
+
+
+.movie-list-item-trailer.is-adding {
+  animation: addButtonClickAnimation 2s forwards;
+}
+
+@keyframes addButtonClickAnimation {
+  0% {
+    background-color: red;
+  }
+  50% {
+    transform: scale(0.95);
+    background-color: orange;
+  }
+  100% {
+    transform: scale(1);
+    background-color: green;
+  }
+}
+
+
+.movie-list-item-trailer.is-added {
+  background-color: green; 
+  cursor: default;
+  pointer-events: none; 
+}
+
+.movie-list-item:hover .movie-list-item-title,
+.movie-list-item:hover .movie-list-item-desc,
+.movie-list-item:hover .movie-list-item-trailer {
+  opacity: 1;
+}
+
+.arrow{
+  font-size: 120px;
+  position: absolute;
+  top: 130px;
+  right: 0;
+  color: lightgrey;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.arrow-left{
+  position: absolute;
+  font-size: 120px;
+  left: 0;
+  top: 130px;
+  cursor: pointer;
+  opacity: 0.5;
+  color: lightgrey;
+}
+
+.container.active{
+  background-color: white;
+}
+
+.movie-list-title.active{
+  color: black;
+}
+
+
+.navbar-container.active{
+  color: black;
+  background-color: white;
+}
+
+.sidebar.active{
+  background-color: white;
+}
+
+.left-menu-icon.active{
+  color: black;
+}
+
+.toggle.active{
+  background-color: black;
+}
+
+.toggle-ball.active{
+  background-color: white;
+  transform: translateX(-20px);
+}
+
+.movie-list-item-desc.active{
+  color: black;
+}
+
+.movie-list-item-title.active{
+  color: black;
+}
+
+@media only screen and (max-width: 1920px){
+  .menu-container{
+      display: none;
+  }
+}
+
+
+.series-list{
+  display: flex;
+  align-items: center;
+  height: 400px;
+  transform: translateX(0);
+  transition: all 1s ease-in-out;
+  margin-bottom: 12px;
+  
+}
+
+.series-list-item{
+  margin-right: 30px;
+  position: relative;
+}
+
+.series-list-item-img{
+  width: 258px;
+  height: 320px;
+  object-fit: cover;
+  transition: all 0.5s ease-in-out;
+  border-radius: 20px;
+}
+
+.series-list-item:hover .series-list-item-img{
+  transform: scale(1.1);
+  margin: 0 10px;
+  opacity: 0.35;
+}
+
+.series-list-item-title{
+  padding: 0 10px;
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  top: 3%;
+  left: 50px;
+  opacity: 0;
+  transition: 0.5s all ease-in-out;
+} 
+
+.series-list-item-desc{
+  
+  padding: 10px;
+  font-size: 12px;
+  position: absolute;
+  top: 18%;
+  left: 8px;
+  width: 240px;
+  opacity: 0;
+  transition: 0.5s all ease-in-out;
+}
+
+.series-list-item-trailer{
+  padding: 8px;
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+  font-weight: 800;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+  opacity: 0;
+  transition: 0.5s all ease-in-out;
+  transition: transform 0.2s, background-color 0.5s;
+}
+
+.series-list-item-trailer:hover {
+  transform: scale(1.05);
+  background-color: orange; 
+  opacity: 1; 
+}
+
+
+.series-list-item-trailer:active {
+  transform: scale(0.95);
+}
+
+
+.series-list-item-trailer.is-adding {
+  animation: addButtonClickAnimation 2s forwards;
+}
+
+@keyframes addButtonClickAnimation {
+  0% {
+    background-color: red;
+  }
+  50% {
+    transform: scale(0.95);
+    background-color: orange;
+  }
+  100% {
+    transform: scale(1);
+    background-color: green;
+  }
+}
+
+
+.series-list-item-trailer.is-added {
+  background-color: green; 
+  cursor: default;
+  pointer-events: none; 
+}
+
+.series-list-item:hover .series-list-item-title,
+.series-list-item:hover .series-list-item-desc,
+.series-list-item:hover .series-list-item-trailer {
+  opacity: 1;
+} 
